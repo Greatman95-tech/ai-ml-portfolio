@@ -1,0 +1,42 @@
+name: Make Brand Clickable
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-brand:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Make logo and name link to homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+
+          old = '<span class="brand"><span class="brand-mark">AI</span>Obiajuru Nwadiokwu</span>'
+          new = '<a class="brand" href="/ai-ml-portfolio/" aria-label="Go to homepage" style="margin-left:0;text-decoration:none"><span class="brand-mark">AI</span>Obiajuru Nwadiokwu</a>'
+
+          if old not in text:
+              raise SystemExit("Expected brand markup was not found; no changes were made.")
+
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+
+      - name: Commit website update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Make portfolio brand link to homepage"
+          git push
