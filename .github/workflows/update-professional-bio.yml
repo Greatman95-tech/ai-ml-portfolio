@@ -1,0 +1,43 @@
+name: Update Professional Bio
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-bio:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Add Carnegie Mellon degree to bio
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+
+          old = "Obiajuru Triumph Nwadiokwu is a graduate student studying Artificial Intelligence and Machine Learning at Indiana Wesleyan University. He also has a strong background in information systems, data analytics, business technology, and AI-assisted problem-solving. His professional interests include artificial intelligence, machine learning, data analytics, AI product development, prompt engineering, and career-readiness solutions for students and early-career professionals."
+
+          new = "Obiajuru Triumph Nwadiokwu is a graduate student studying Artificial Intelligence and Machine Learning at Indiana Wesleyan University. He holds a Master of Information Systems Management from Carnegie Mellon University and has a strong background in information systems, data analytics, business technology, and AI-assisted problem-solving. His professional interests include artificial intelligence, machine learning, data analytics, AI product development, prompt engineering, and career-readiness solutions for students and early-career professionals."
+
+          if old not in text:
+              raise SystemExit("Expected biography text was not found; no changes were made.")
+
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+
+      - name: Commit website update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Add Carnegie Mellon master's degree to professional bio"
+          git push
