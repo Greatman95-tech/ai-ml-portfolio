@@ -6,15 +6,15 @@
   <title>Obiajuru Nwadiokwu Professional AI/ML Portfolio</title>
   <style>
     :root {
-      --navy: #0b1f3a;
-      --navy-light: #12345f;
-      --gold: #d6a94f;
-      --ink: #182033;
-      --muted: #5f6f85;
-      --soft: #f5f7fb;
+      --navy: #07172f;
+      --blue: #123a7a;
+      --gold: #d6a938;
+      --ink: #162033;
+      --muted: #64748b;
+      --soft: #f6f8fc;
       --white: #ffffff;
       --line: #dbe4f0;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
     }
 
     * { box-sizing: border-box; }
@@ -25,28 +25,24 @@
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.65;
       color: var(--ink);
-      background: var(--soft);
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
     }
 
-    a {
-      color: var(--navy-light);
-      text-decoration: none;
-      font-weight: 800;
-    }
-
+    a { color: var(--blue); text-decoration: none; font-weight: 800; }
     a:hover { text-decoration: underline; }
 
     nav {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid var(--line);
       padding: 16px 24px;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
 
-    nav .nav-inner {
+    nav div {
       max-width: 1120px;
       margin: auto;
       display: flex;
@@ -68,31 +64,28 @@
     .brand-mark {
       width: 34px;
       height: 34px;
-      border-radius: 50%;
+      border-radius: 12px;
       background: var(--navy);
       color: var(--gold);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      letter-spacing: -0.03em;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
     }
 
     nav a {
       color: var(--navy);
-      margin-left: 18px;
+      margin-left: 16px;
       font-weight: 850;
     }
 
-    nav a:hover {
-      color: var(--gold);
-      text-decoration: none;
-    }
+    nav a:hover { color: var(--blue); text-decoration: none; }
 
     header {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
       color: white;
-      padding: 88px 24px 76px;
+      padding: 82px 24px 78px;
     }
 
     .container {
@@ -103,37 +96,46 @@
 
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
       gap: 42px;
       align-items: center;
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       margin: 0 0 16px;
-      padding: 7px 13px;
+      padding: 8px 13px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.10);
-      color: #e8edf5;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
+      background: rgba(255, 255, 255, 0.12);
+      color: #e5eefc;
+      font-size: .8rem;
+      letter-spacing: .12em;
       text-transform: uppercase;
       font-weight: 900;
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
     h1 {
-      max-width: 880px;
-      font-size: clamp(2.4rem, 5.5vw, 4.6rem);
-      line-height: 1.06;
+      max-width: 900px;
+      font-size: clamp(2.45rem, 6vw, 4.8rem);
+      line-height: 1.04;
       margin: 0 0 22px;
       letter-spacing: -0.05em;
     }
 
-    .gold-text { color: var(--gold); }
+    .gold-text { color: #f4d67b; }
 
     h2 {
-      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
       margin: 0;
       color: var(--navy);
       line-height: 1.2;
@@ -142,7 +144,7 @@
 
     h3 {
       color: var(--navy);
-      margin-top: 28px;
+      margin-top: 30px;
       margin-bottom: 8px;
       font-size: 1.12rem;
     }
@@ -150,7 +152,7 @@
     .hero-text {
       max-width: 850px;
       font-size: 1.12rem;
-      color: #e8edf5;
+      color: #e5f2ff;
       margin-bottom: 24px;
     }
 
@@ -158,90 +160,139 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 13px 20px;
       margin: 8px 8px 0 0;
       border-radius: 999px;
       font-weight: 900;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform .2s ease, box-shadow .2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
+    .button:hover { transform: translateY(-2px); text-decoration: none; }
+    .button.primary { background: white; color: var(--navy); box-shadow: 0 16px 35px rgba(0,0,0,.18); }
+    .button.gold { background: var(--gold); color: var(--navy); box-shadow: 0 16px 35px rgba(214,169,56,.22); }
+    .button.blue { background: var(--blue); color: white; box-shadow: 0 16px 35px rgba(18,58,122,.18); }
 
-    .button.primary {
-      background: var(--gold);
-      color: var(--navy);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: white;
-      border-color: rgba(255, 255, 255, 0.38);
-    }
-
-    .button.dark {
-      background: var(--navy);
-      color: white;
-    }
+    .hero-photo-wrap { display: flex; justify-content: center; }
 
     .hero-photo-card {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 26px;
-      padding: 18px;
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 22px;
+      box-shadow: 0 28px 80px rgba(0,0,0,.24);
+      backdrop-filter: blur(14px);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .photo-window {
+      width: min(320px, 68vw);
+      height: min(320px, 68vw);
+      margin: 0 auto;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #111827;
+      border: 6px solid rgba(255,255,255,.92);
+      box-shadow: 0 22px 50px rgba(0,0,0,.25);
     }
 
     .profile-photo {
-      display: block;
-      width: min(335px, 74vw);
-      height: 410px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: center top;
-      border-radius: 22px;
-      border: 4px solid rgba(255, 255, 255, 0.92);
+      object-position: center;
+      transform: scale(1.22);
+      display: block;
     }
 
     .photo-caption {
-      margin: 14px 4px 0;
-      color: #e8edf5;
-      font-weight: 800;
+      margin: 18px 4px 0;
+      color: #e5eefc;
+      font-weight: 850;
       text-align: center;
+      font-size: 1.1rem;
     }
+
+    .hero-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 24px;
+      padding: 24px;
+      margin-top: 26px;
+    }
+
+    .hero-card h3 { color: white; margin-top: 0; }
+    .hero-card p { color: #dbeafe; }
+
+    .mini-card {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      margin-top: 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--navy);
+      background: var(--gold);
+    }
+
+    .mini-card strong { color: white; display: block; }
+    .mini-card span { color: #dbeafe; font-size: .92rem; }
 
     section { padding: 68px 0; }
 
     .section-heading {
       margin-bottom: 24px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .section-kicker {
-      color: var(--gold);
+      color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.78rem;
+      letter-spacing: .14em;
+      font-size: .78rem;
       font-weight: 900;
       margin: 0 0 8px;
     }
 
     .card {
-      background: var(--white);
+      background: rgba(255,255,255,.96);
       border: 1px solid var(--line);
-      border-radius: 22px;
+      border-radius: 24px;
       padding: 30px;
       box-shadow: var(--shadow);
       margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .alt {
-      background: #ffffff;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .card:before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: var(--gold);
     }
+
+    .alt { background: #ffffff; }
 
     .feature-row {
       display: grid;
@@ -253,27 +304,21 @@
     .feature {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 22px;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
+      box-shadow: 0 12px 30px rgba(15,23,42,.08);
     }
 
     .feature b {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--gold);
-      font-size: 1rem;
-      margin-bottom: 12px;
+      font-size: 1.4rem;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 6px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+      grid-template-columns: minmax(0,2fr) minmax(280px,.9fr);
       gap: 24px;
       align-items: start;
     }
@@ -287,20 +332,17 @@
     }
 
     .tag-list li {
-      background: #f0f3f8;
-      color: var(--navy);
-      border: 1px solid #d8e0ec;
+      background: #eef3ff;
+      color: #1d3a6d;
+      border: 1px solid #cbd8f2;
       padding: 8px 12px;
       border-radius: 999px;
-      font-size: 0.92rem;
+      font-size: .92rem;
       font-weight: 800;
     }
 
     .skills-list li { margin-bottom: 8px; }
-
-    .highlight {
-      border-left: 6px solid var(--gold);
-    }
+    .highlight { background: #fffaf0; border-left: 6px solid var(--gold); }
 
     footer {
       background: var(--navy);
@@ -311,18 +353,18 @@
 
     footer strong { color: white; }
 
-    @media (max-width: 900px) {
+    @media(max-width:900px) {
       .hero-layout, .grid, .feature-row { grid-template-columns: 1fr; }
+      .hero-photo-wrap { justify-content: flex-start; }
       nav a { margin-left: 10px; }
       header { padding-top: 68px; }
-      h1 { font-size: clamp(2.2rem, 11vw, 4rem); }
-      .profile-photo { height: auto; }
+      h1 { font-size: clamp(2.35rem, 12vw, 4rem); }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="nav-inner">
+    <div>
       <span class="brand"><span class="brand-mark">AI</span>Obiajuru Nwadiokwu</span>
       <span>
         <a href="#bio">Bio</a>
@@ -337,15 +379,23 @@
     <div class="container">
       <div class="hero-layout">
         <div>
-          <p class="eyebrow">Professional AI/ML Portfolio</p>
-          <h1>Building practical <span class="gold-text">AI solutions</span> through learning, design thinking, and responsible innovation.</h1>
+          <p class="eyebrow"><span class="dot"></span>Professional Portfolio</p>
+          <h1>Building <span class="gold-text">practical AI solutions</span> through learning, design thinking, and responsible innovation.</h1>
           <p class="hero-text">This portfolio showcases my growth, skills, and professional development in artificial intelligence, machine learning, data analytics, and technology. It highlights course-based artifacts that demonstrate my ability to apply AI concepts, solve problems, communicate technical ideas, and create practical solutions for real-world audiences.</p>
-          <a class="button primary" href="#artifact">View Artifact 1</a>
-          <a class="button secondary" href="https://chatgpt.com/g/g-6a4fff72b9dc81919a778f15e5975f65-pathwise-ai-assistant" target="_blank" rel="noopener noreferrer">Open PathWise AI Assistant</a>
+          <a class="button gold" href="#artifact">View Artifact 1</a>
+          <a class="button primary" href="https://chatgpt.com/g/g-6a4fff72b9dc81919a778f15e5975f65-pathwise-ai-assistant" target="_blank" rel="noopener noreferrer">Open PathWise AI Assistant</a>
+          <div class="hero-card">
+            <h3>Portfolio Focus</h3>
+            <p>AI/ML learning, data analytics, prompt engineering, responsible AI, and career-readiness solutions.</p>
+            <div class="mini-card"><span class="icon">1</span><div><strong>Artifact 1</strong><span>PathWise AI Assistant</span></div></div>
+            <div class="mini-card"><span class="icon">AI</span><div><strong>Core Strength</strong><span>Connecting technical learning to professional value.</span></div></div>
+          </div>
         </div>
-        <div class="hero-photo-card">
-          <img class="profile-photo" src="profile.svg" alt="Professional headshot of Obiajuru Nwadiokwu">
-          <p class="photo-caption">Obiajuru Triumph Nwadiokwu</p>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-card">
+            <div class="photo-window"><img class="profile-photo" src="profile.svg" alt="Professional headshot of Obiajuru Nwadiokwu"></div>
+            <p class="photo-caption">Obiajuru Triumph Nwadiokwu</p>
+          </div>
         </div>
       </div>
     </div>
@@ -354,10 +404,7 @@
   <main>
     <section id="bio">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-kicker">About</p>
-          <h2>Professional Bio</h2>
-        </div>
+        <div class="section-heading"><div><p class="section-kicker">About</p><h2>Professional Bio</h2></div></div>
         <div class="card">
           <p>Obiajuru Triumph Nwadiokwu is a graduate student studying Artificial Intelligence and Machine Learning at Indiana Wesleyan University. He also has a strong background in information systems, data analytics, business technology, and AI-assisted problem-solving. His professional interests include artificial intelligence, machine learning, data analytics, AI product development, prompt engineering, and career-readiness solutions for students and early-career professionals.</p>
           <p>Obiajuru is passionate about using technology to solve practical problems, improve decision-making, and support professional growth. His work focuses on connecting technical learning with real-world application, especially in areas such as AI/ML project development, data-driven insights, portfolio building, and ethical use of generative AI.</p>
@@ -372,10 +419,7 @@
 
     <section id="value" class="alt">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-kicker">Professional Identity</p>
-          <h2>Personal Value Proposition</h2>
-        </div>
+        <div class="section-heading"><div><p class="section-kicker">Professional Identity</p><h2>Personal Value Proposition</h2></div></div>
         <div class="card highlight">
           <p>I bring a unique combination of artificial intelligence knowledge, data analytics skills, information systems training, business understanding, and user-centered problem-solving. My value comes from my ability to connect technical concepts to practical solutions that help people learn, grow, and make better decisions.</p>
           <p>As an emerging AI/ML professional, I am developing the ability to design AI-assisted tools, analyze data, communicate complex ideas clearly, and create useful resources for students, professionals, and organizations. My portfolio demonstrates my growth as a learner, problem-solver, and future contributor to the AI and machine learning field.</p>
@@ -385,10 +429,7 @@
 
     <section id="artifact">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-kicker">Artifact 1</p>
-          <h2>PathWise AI Assistant: An AI/ML Career Readiness Chatbot</h2>
-        </div>
+        <div class="section-heading"><div><p class="section-kicker">Artifact 1</p><h2>PathWise AI Assistant: An AI/ML Career Readiness Chatbot</h2></div><a class="button blue" href="https://chatgpt.com/g/g-6a4fff72b9dc81919a778f15e5975f65-pathwise-ai-assistant" target="_blank" rel="noopener noreferrer">Launch Bot</a></div>
         <div class="grid">
           <article class="card">
             <h3>Introduction</h3>
@@ -418,25 +459,10 @@
           <aside class="card">
             <h3>Tools and Technologies Used</h3>
             <ul class="tag-list">
-              <li>ChatGPT</li>
-              <li>Custom GPT Builder</li>
-              <li>STORM AI</li>
-              <li>Generative AI Prompting</li>
-              <li>Prompt Testing</li>
-              <li>Design Thinking</li>
-              <li>AI/ML Career Readiness Planning</li>
-              <li>Research Synthesis</li>
-              <li>Technical Writing</li>
+              <li>ChatGPT</li><li>Custom GPT Builder</li><li>STORM AI</li><li>Generative AI Prompting</li><li>Prompt Testing</li><li>Design Thinking</li><li>AI/ML Career Readiness Planning</li><li>Research Synthesis</li><li>Technical Writing</li>
             </ul>
             <h3>Skills Demonstrated</h3>
-            <ul class="skills-list">
-              <li>Custom AI assistant design</li>
-              <li>User-centered problem solving</li>
-              <li>Ethical AI use</li>
-              <li>Portfolio and resume readiness</li>
-              <li>AI/ML communication</li>
-            </ul>
-            <a class="button dark" href="https://chatgpt.com/g/g-6a4fff72b9dc81919a778f15e5975f65-pathwise-ai-assistant" target="_blank" rel="noopener noreferrer">Launch Bot</a>
+            <ul class="skills-list"><li>Custom AI assistant design</li><li>User-centered problem solving</li><li>Ethical AI use</li><li>Portfolio and resume readiness</li><li>AI/ML communication</li></ul>
           </aside>
         </div>
       </div>
@@ -444,10 +470,7 @@
 
     <section id="contact" class="alt">
       <div class="container">
-        <div class="section-heading">
-          <p class="section-kicker">Contact</p>
-          <h2>Professional Contact</h2>
-        </div>
+        <div class="section-heading"><div><p class="section-kicker">Contact</p><h2>Professional Contact</h2></div></div>
         <div class="card">
           <p>Email: <a href="mailto:great4ever2017@gmail.com">great4ever2017@gmail.com</a></p>
           <p>This portfolio will continue to grow as I complete additional AI/ML artifacts, projects, and reflections throughout my graduate program.</p>
@@ -456,8 +479,6 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 <strong>Obiajuru Triumph Nwadiokwu</strong>. Professional AI/ML Portfolio.</p>
-  </footer>
+  <footer><p><strong>Obiajuru Triumph Nwadiokwu</strong> &copy; 2026. Professional AI/ML Portfolio.</p></footer>
 </body>
 </html>
