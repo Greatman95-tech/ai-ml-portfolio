@@ -7,12 +7,14 @@
   <style>
     :root {
       --navy: #07172f;
-      --blue: #123a7a;
-      --gold: #d6a938;
-      --ink: #162033;
+      --deep-blue: #0f2f63;
+      --blue: #1e4f91;
+      --gold: #f4c84a;
+      --gold-soft: #ffe8a3;
+      --ink: #182033;
       --muted: #64748b;
-      --soft: #f6f8fc;
       --white: #ffffff;
+      --soft: #f6f8fc;
       --line: #dbe4f0;
       --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
     }
@@ -32,14 +34,14 @@
     a:hover { text-decoration: underline; }
 
     nav {
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(219, 228, 240, 0.95);
       padding: 16px 24px;
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
     }
 
     nav div {
@@ -65,13 +67,14 @@
       width: 34px;
       height: 34px;
       border-radius: 12px;
-      background: var(--navy);
-      color: var(--gold);
+      background: linear-gradient(135deg, var(--navy), var(--gold));
+      box-shadow: 0 8px 24px rgba(7, 23, 47, 0.18);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      color: white;
       font-weight: 900;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+      font-size: 0.8rem;
     }
 
     nav a {
@@ -83,21 +86,39 @@
     nav a:hover { color: var(--blue); text-decoration: none; }
 
     header {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(244, 200, 74, 0.24), transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.10), transparent 28%),
+        linear-gradient(135deg, #07172f 0%, #0d2a58 48%, #173f78 100%);
       color: white;
-      padding: 82px 24px 78px;
+      padding: 86px 24px 78px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      right: -160px;
+      bottom: -180px;
+      background: rgba(244, 200, 74, 0.12);
     }
 
     .container {
       max-width: 1120px;
       margin: auto;
       padding: 0 24px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
-      gap: 42px;
+      grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+      gap: 38px;
       align-items: center;
     }
 
@@ -109,12 +130,12 @@
       padding: 8px 13px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.12);
-      color: #e5eefc;
-      font-size: .8rem;
-      letter-spacing: .12em;
+      color: #edf4ff;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 900;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
     }
 
     .dot {
@@ -122,20 +143,26 @@
       height: 9px;
       border-radius: 50%;
       background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(244, 200, 74, 0.18);
     }
 
     h1 {
       max-width: 900px;
-      font-size: clamp(2.45rem, 6vw, 4.8rem);
-      line-height: 1.04;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.03;
       margin: 0 0 22px;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.055em;
     }
 
-    .gold-text { color: #f4d67b; }
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, var(--gold-soft) 38%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
     h2 {
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
       margin: 0;
       color: var(--navy);
       line-height: 1.2;
@@ -152,7 +179,7 @@
     .hero-text {
       max-width: 850px;
       font-size: 1.12rem;
-      color: #e5f2ff;
+      color: #e5eefc;
       margin-bottom: 24px;
     }
 
@@ -165,61 +192,22 @@
       margin: 8px 8px 0 0;
       border-radius: 999px;
       font-weight: 900;
-      transition: transform .2s ease, box-shadow .2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.24);
     }
 
     .button:hover { transform: translateY(-2px); text-decoration: none; }
-    .button.primary { background: white; color: var(--navy); box-shadow: 0 16px 35px rgba(0,0,0,.18); }
-    .button.gold { background: var(--gold); color: var(--navy); box-shadow: 0 16px 35px rgba(214,169,56,.22); }
-    .button.blue { background: var(--blue); color: white; box-shadow: 0 16px 35px rgba(18,58,122,.18); }
-
-    .hero-photo-wrap { display: flex; justify-content: center; }
-
-    .hero-photo-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 30px;
-      padding: 22px;
-      box-shadow: 0 28px 80px rgba(0,0,0,.24);
-      backdrop-filter: blur(14px);
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .photo-window {
-      width: min(320px, 68vw);
-      height: min(320px, 68vw);
-      margin: 0 auto;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #111827;
-      border: 6px solid rgba(255,255,255,.92);
-      box-shadow: 0 22px 50px rgba(0,0,0,.25);
-    }
-
-    .profile-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transform: scale(1.22);
-      display: block;
-    }
-
-    .photo-caption {
-      margin: 18px 4px 0;
-      color: #e5eefc;
-      font-weight: 850;
-      text-align: center;
-      font-size: 1.1rem;
-    }
+    .button.primary { background: white; color: var(--navy); box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18); }
+    .button.accent { background: linear-gradient(135deg, var(--gold), #ffd978); color: var(--navy); box-shadow: 0 16px 35px rgba(244, 200, 74, 0.20); }
+    .button.blue { background: linear-gradient(135deg, var(--navy), var(--blue)); color: white; box-shadow: 0 16px 35px rgba(15, 47, 99, 0.18); }
 
     .hero-card {
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 24px;
-      padding: 24px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(16px);
       margin-top: 26px;
     }
 
@@ -234,14 +222,14 @@
       padding: 14px;
       margin-top: 12px;
       border-radius: 18px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
 
     .icon {
       width: 44px;
       height: 44px;
-      border-radius: 14px;
+      border-radius: 16px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -251,7 +239,19 @@
     }
 
     .mini-card strong { color: white; display: block; }
-    .mini-card span { color: #dbeafe; font-size: .92rem; }
+    .mini-card span { color: #dbeafe; font-size: 0.92rem; }
+
+    .hero-photo-wrap { display: flex; justify-content: center; }
+    .hero-photo-card {
+      padding: 22px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(16px);
+    }
+    .profile-photo { display: block; width: min(330px, 72vw); height: auto; }
+    .photo-caption { margin: 14px 4px 0; color: #dbeafe; font-weight: 800; text-align: center; }
 
     section { padding: 68px 0; }
 
@@ -267,15 +267,15 @@
     .section-kicker {
       color: var(--blue);
       text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: .78rem;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
       font-weight: 900;
       margin: 0 0 8px;
     }
 
     .card {
-      background: rgba(255,255,255,.96);
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(219, 228, 240, 0.95);
       border-radius: 24px;
       padding: 30px;
       box-shadow: var(--shadow);
@@ -284,15 +284,20 @@
       overflow: hidden;
     }
 
-    .card:before {
+    .card::before {
       content: "";
       position: absolute;
       inset: 0 0 auto 0;
       height: 5px;
-      background: var(--gold);
+      background: linear-gradient(90deg, var(--navy), var(--blue), var(--gold));
     }
 
-    .alt { background: #ffffff; }
+    .alt {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(30, 79, 145, 0.08), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(244, 200, 74, 0.08), transparent 24%),
+        #ffffff;
+    }
 
     .feature-row {
       display: grid;
@@ -306,11 +311,11 @@
       border: 1px solid var(--line);
       border-radius: 22px;
       padding: 22px;
-      box-shadow: 0 12px 30px rgba(15,23,42,.08);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
     }
 
     .feature b {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: var(--blue);
       display: block;
       margin-bottom: 6px;
@@ -318,7 +323,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(0,2fr) minmax(280px,.9fr);
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
       gap: 24px;
       align-items: start;
     }
@@ -334,15 +339,19 @@
     .tag-list li {
       background: #eef3ff;
       color: #1d3a6d;
-      border: 1px solid #cbd8f2;
+      border: 1px solid #c7d2fe;
       padding: 8px 12px;
       border-radius: 999px;
-      font-size: .92rem;
+      font-size: 0.92rem;
       font-weight: 800;
     }
 
     .skills-list li { margin-bottom: 8px; }
-    .highlight { background: #fffaf0; border-left: 6px solid var(--gold); }
+
+    .highlight {
+      background: linear-gradient(135deg, rgba(244, 200, 74, 0.16), rgba(30, 79, 145, 0.06));
+      border-left: 6px solid var(--gold);
+    }
 
     footer {
       background: var(--navy);
@@ -353,7 +362,7 @@
 
     footer strong { color: white; }
 
-    @media(max-width:900px) {
+    @media (max-width: 900px) {
       .hero-layout, .grid, .feature-row { grid-template-columns: 1fr; }
       .hero-photo-wrap { justify-content: flex-start; }
       nav a { margin-left: 10px; }
@@ -380,9 +389,9 @@
       <div class="hero-layout">
         <div>
           <p class="eyebrow"><span class="dot"></span>Professional Portfolio</p>
-          <h1>Building <span class="gold-text">practical AI solutions</span> through learning, design thinking, and responsible innovation.</h1>
+          <h1>Building <span class="gradient-text">practical AI solutions</span> through learning, design thinking, and responsible innovation.</h1>
           <p class="hero-text">This portfolio showcases my growth, skills, and professional development in artificial intelligence, machine learning, data analytics, and technology. It highlights course-based artifacts that demonstrate my ability to apply AI concepts, solve problems, communicate technical ideas, and create practical solutions for real-world audiences.</p>
-          <a class="button gold" href="#artifact">View Artifact 1</a>
+          <a class="button accent" href="#artifact">View Artifact 1</a>
           <a class="button primary" href="https://chatgpt.com/g/g-6a4fff72b9dc81919a778f15e5975f65-pathwise-ai-assistant" target="_blank" rel="noopener noreferrer">Open PathWise AI Assistant</a>
           <div class="hero-card">
             <h3>Portfolio Focus</h3>
@@ -393,7 +402,7 @@
         </div>
         <div class="hero-photo-wrap">
           <div class="hero-photo-card">
-            <div class="photo-window"><img class="profile-photo" src="profile.svg" alt="Professional headshot of Obiajuru Nwadiokwu"></div>
+            <img class="profile-photo" src="profile.svg" alt="Professional headshot of Obiajuru Nwadiokwu">
             <p class="photo-caption">Obiajuru Triumph Nwadiokwu</p>
           </div>
         </div>
@@ -456,13 +465,28 @@
               <li>AIML-500 AI Lab Guided Activities.</li>
             </ul>
           </article>
+
           <aside class="card">
             <h3>Tools and Technologies Used</h3>
             <ul class="tag-list">
-              <li>ChatGPT</li><li>Custom GPT Builder</li><li>STORM AI</li><li>Generative AI Prompting</li><li>Prompt Testing</li><li>Design Thinking</li><li>AI/ML Career Readiness Planning</li><li>Research Synthesis</li><li>Technical Writing</li>
+              <li>ChatGPT</li>
+              <li>Custom GPT Builder</li>
+              <li>STORM AI</li>
+              <li>Generative AI Prompting</li>
+              <li>Prompt Testing</li>
+              <li>Design Thinking</li>
+              <li>AI/ML Career Readiness Planning</li>
+              <li>Research Synthesis</li>
+              <li>Technical Writing</li>
             </ul>
             <h3>Skills Demonstrated</h3>
-            <ul class="skills-list"><li>Custom AI assistant design</li><li>User-centered problem solving</li><li>Ethical AI use</li><li>Portfolio and resume readiness</li><li>AI/ML communication</li></ul>
+            <ul class="skills-list">
+              <li>Custom AI assistant design</li>
+              <li>User-centered problem solving</li>
+              <li>Ethical AI use</li>
+              <li>Portfolio and resume readiness</li>
+              <li>AI/ML communication</li>
+            </ul>
           </aside>
         </div>
       </div>
@@ -479,6 +503,6 @@
     </section>
   </main>
 
-  <footer><p><strong>Obiajuru Triumph Nwadiokwu</strong> &copy; 2026. Professional AI/ML Portfolio.</p></footer>
+  <footer><p><strong>&copy; 2026 Obiajuru Triumph Nwadiokwu.</strong> Professional AI/ML Portfolio.</p></footer>
 </body>
 </html>
