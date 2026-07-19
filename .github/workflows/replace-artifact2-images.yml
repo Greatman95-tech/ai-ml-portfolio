@@ -1,0 +1,93 @@
+name: Replace Artifact 2 With Slide Images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/replace-artifact2-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild Artifact 2 from uploaded slide image data
+        shell: bash
+        run: |
+          python - <<'PYCODE'
+          from pathlib import Path
+          import base64, zlib, io, math, shutil
+          from PIL import Image
+
+          payloads = {
+            'index.html': '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',
+            'artifact2.html': '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',
+            'styles.css': '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',
+          }
+          for name, payload in payloads.items():
+              Path(name).write_bytes(zlib.decompress(base64.b64decode(payload)))
+
+          chunk_dir = Path('artifact2_upload')
+          chunks = [chunk_dir / 'chunk01.txt', chunk_dir / 'chunk02.txt']
+          raw_b64 = ''.join(p.read_text().strip() for p in chunks)
+          image_bytes = base64.b64decode(raw_b64)
+          image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
+          w, h = image.size
+          out = Path('assets/artifact2')
+          out.mkdir(parents=True, exist_ok=True)
+
+          for p in out.glob('slide*'):
+              p.unlink()
+
+          slide_ratio = 16 / 9
+          crops = []
+          if h / w > 3:
+              cell_h = round(w / slide_ratio)
+              count = max(1, round(h / cell_h))
+              for i in range(count):
+                  top = round(i * h / count)
+                  bottom = round((i + 1) * h / count)
+                  crops.append(image.crop((0, top, w, bottom)))
+          elif w / h > 3:
+              cell_w = round(h * slide_ratio)
+              count = max(1, round(w / cell_w))
+              for i in range(count):
+                  left = round(i * w / count)
+                  right = round((i + 1) * w / count)
+                  crops.append(image.crop((left, 0, right, h)))
+          else:
+              candidates = [(1,14),(2,7),(7,2),(14,1)]
+              cols, rows = min(candidates, key=lambda cr: abs((w/cr[0])/(h/cr[1]) - slide_ratio))
+              for r in range(rows):
+                  for c in range(cols):
+                      left = round(c * w / cols); right = round((c + 1) * w / cols)
+                      top = round(r * h / rows); bottom = round((r + 1) * h / rows)
+                      crops.append(image.crop((left, top, right, bottom)))
+
+          if len(crops) < 14:
+              raise RuntimeError(f'Expected at least 14 slides, found {len(crops)} from image size {w}x{h}')
+          for i, slide in enumerate(crops[:14], start=1):
+              slide.save(out / f'slide{i:02d}.jpg', quality=92, optimize=True)
+
+          page = Path('artifact2.html').read_text()
+          import re
+          page = re.sub(r'assets/artifact2/slide\d{2}-[^" ]+\.png', lambda m: f"assets/artifact2/slide{int(re.search(r'slide(\d{2})', m.group()).group(1)):02d}.jpg", page)
+          Path('artifact2.html').write_text(page)
+
+          shutil.rmtree(chunk_dir, ignore_errors=True)
+          workflow = Path('.github/workflows/replace-artifact2-images.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PYCODE
+
+      - name: Commit updated portfolio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Replace Artifact 2 with converted slide images" || exit 0
+          git push
