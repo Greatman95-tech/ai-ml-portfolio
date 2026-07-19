@@ -3,46 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artifact 2 | Machine Learning vs. Deep Learning Industry Analysis</title>
+  <title>Artifact 2 | ML vs. Deep Learning Industry Analysis</title>
   <style>
-    :root { --navy:#07172f; --deep:#0f2f63; --blue:#1e4f91; --gold:#f4c84a; --ink:#182033; --muted:#64748b; --line:#dbe4f0; --soft:#f6f8fc; --white:#fff; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family:Arial,Helvetica,sans-serif; line-height:1.65; color:var(--ink); background:linear-gradient(180deg,#f8fbff 0%,#eef4ff 100%); }
-    a { color:var(--blue); font-weight:800; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    nav { background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); padding:16px 24px; position:sticky; top:0; z-index:10; box-shadow:0 8px 24px rgba(15,23,42,.07); }
-    .nav-inner { max-width:1120px; margin:auto; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
-    .brand { display:flex; align-items:center; gap:10px; color:var(--navy); font-weight:900; }
-    .mark { width:36px; height:36px; border-radius:12px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--navy),var(--gold)); }
-    header { color:#fff; padding:76px 24px; background:radial-gradient(circle at 15% 15%,rgba(244,200,74,.22),transparent 25%),linear-gradient(135deg,#07172f,#173f78); }
-    .container { max-width:1120px; margin:auto; padding:0 24px; }
-    .eyebrow { display:inline-block; border:1px solid rgba(255,255,255,.30); border-radius:999px; padding:8px 13px; font-size:.8rem; letter-spacing:.13em; text-transform:uppercase; font-weight:900; }
-    h1 { font-size:clamp(2.5rem,6vw,4.8rem); line-height:1.04; max-width:980px; margin:18px 0; letter-spacing:-.05em; }
-    header p { max-width:900px; color:#e5eefc; font-size:1.12rem; }
-    main { padding:56px 0 74px; }
-    .card { background:#fff; border:1px solid var(--line); border-radius:24px; padding:30px; box-shadow:0 18px 45px rgba(15,23,42,.11); margin-bottom:24px; }
-    h2 { color:var(--navy); margin-top:0; font-size:2rem; line-height:1.2; }
-    h3 { color:var(--navy); margin-top:28px; }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
-    .comparison { width:100%; border-collapse:collapse; margin-top:18px; }
-    .comparison th,.comparison td { border:1px solid var(--line); padding:13px; text-align:left; vertical-align:top; }
-    .comparison th { background:var(--navy); color:#fff; }
-    .tag { display:inline-block; margin:5px; padding:7px 11px; border-radius:999px; background:#eef3ff; color:#1d3a6d; font-weight:800; font-size:.9rem; }
-    .roadmap { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .phase { border:1px solid var(--line); border-radius:18px; padding:20px; background:var(--soft); }
-    .phase b { display:block; color:var(--blue); margin-bottom:6px; }
-    .quote { border-left:6px solid var(--gold); background:#fff7d8; padding:20px; border-radius:14px; font-size:1.12rem; font-weight:800; }
-    .contributors { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-    .person { border:1px solid var(--line); border-radius:16px; padding:16px; background:var(--soft); }
-    .person strong { color:var(--navy); display:block; }
-    footer { background:var(--navy); color:#cbd5e1; text-align:center; padding:30px 20px; }
-    @media(max-width:850px){ .grid,.roadmap,.contributors{grid-template-columns:1fr;} .comparison{font-size:.88rem;} }
+    :root{--navy:#07172f;--blue:#1e4f91;--gold:#f4c84a;--ink:#182033;--muted:#64748b;--line:#dbe4f0;--soft:#eef4ff;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(180deg,#f8fbff,#eef4ff);line-height:1.6}
+    a{color:var(--blue);font-weight:800;text-decoration:none}
+    a:hover{text-decoration:underline}
+    nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);box-shadow:0 8px 24px rgba(15,23,42,.07)}
+    .nav{max-width:1280px;margin:auto;padding:15px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px;color:var(--navy)}
+    .mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--gold));color:white;font-weight:900}
+    header{background:linear-gradient(135deg,#07172f,#173f78);color:white;padding:62px 24px}
+    .container{max-width:1280px;margin:auto}
+    .eyebrow{display:inline-block;color:var(--gold);font-weight:900;letter-spacing:.13em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.35rem,5vw,4.6rem);line-height:1.05;margin:14px 0 18px}
+    header p{max-width:920px;color:#e5eefc;font-size:1.08rem}
+    .role{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);font-weight:800}
+    main{padding:46px 24px 72px}
+    .intro{background:white;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 16px 42px rgba(15,23,42,.09);margin-bottom:28px}
+    .gallery{display:grid;gap:28px}
+    .slide{margin:0;background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 16px 42px rgba(15,23,42,.10)}
+    .slide canvas{display:block;width:100%;height:auto;background:white}
+    .slide figcaption{padding:15px 20px;color:var(--navy);font-weight:800}
+    .status{padding:22px;border-radius:18px;background:#fff7d8;border:1px solid #f4c84a;color:var(--navy);font-weight:800}
+    footer{background:var(--navy);color:#cbd5e1;text-align:center;padding:30px 20px}
+    @media(max-width:700px){header{padding-top:45px}main{padding-left:12px;padding-right:12px}.slide{border-radius:14px}}
   </style>
 </head>
 <body>
   <nav>
-    <div class="nav-inner">
+    <div class="nav">
       <a class="brand" href="/ai-ml-portfolio/"><span class="mark">AI</span>Obiajuru Nwadiokwu</a>
       <a href="/ai-ml-portfolio/#artifact2">Back to Portfolio</a>
     </div>
@@ -51,100 +43,117 @@
   <header>
     <div class="container">
       <span class="eyebrow">Artifact 2</span>
-      <h1>Machine Learning vs. Deep Learning Industry Analysis</h1>
-      <p>Retail &amp; E-Commerce | A comparative analysis of demand forecasting, visual search, business strategy, and responsible AI adoption.</p>
+      <h1>ML vs. Deep Learning Industry Analysis</h1>
+      <p>Retail &amp; E-Commerce — the original 14-slide presentation displayed exactly as converted from the PowerPoint.</p>
+      <span class="role">My Role: Comparativist + Strategist</span>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <section class="card">
-        <h2>Artifact Overview</h2>
-        <p>This artifact originated as a collaborative presentation for Machine Learning Fundamentals at Indiana Wesleyan University. The project examined how machine learning and deep learning are reshaping retail and e-commerce and compared two business problems that demand fundamentally different technical approaches.</p>
-        <p><strong>My role:</strong> Comparativist + Strategist. I developed the head-to-head comparison, crossover and trade-off evaluation, strategic adoption roadmap, emerging-trends discussion, and ethical reflection.</p>
+      <section class="intro">
+        <h2>Presentation Gallery</h2>
+        <p>This page presents the complete original slide deck as images. Scroll to review every slide.</p>
       </section>
-
-      <section class="card">
-        <h2>Team Structure</h2>
-        <div class="contributors">
-          <div class="person"><strong>Yiting Lin</strong>Industry overview and data landscape</div>
-          <div class="person"><strong>Sravani Thallada</strong>Traditional ML application research</div>
-          <div class="person"><strong>Shreya Bakshi</strong>Deep learning application research</div>
-          <div class="person"><strong>Obiajuru Triumph Nwadiokwu</strong>Comparison and strategic recommendations</div>
-        </div>
-      </section>
-
-      <div class="grid">
-        <section class="card">
-          <h2>Machine Learning Case</h2>
-          <h3>Walmart Demand Forecasting</h3>
-          <p>Retailers must forecast product demand across thousands of items and locations while keeping models efficient, scalable, and understandable to supply-chain planners. Tree ensembles such as gradient boosting, random forests, and XGBoost are strong choices because they perform well with structured, feature-driven data.</p>
-          <p><span class="tag">Structured data</span><span class="tag">Tree ensembles</span><span class="tag">Feature importance</span><span class="tag">Efficient retraining</span></p>
-          <p>The presentation explains how lagged demand, price, promotions, calendar effects, and weather can be transformed into auditable predictors that support replenishment and markdown decisions.</p>
-        </section>
-
-        <section class="card">
-          <h2>Deep Learning Case</h2>
-          <h3>Alibaba Pailitao Visual Search</h3>
-          <p>Visual search must match casual phone photographs with billions of product images despite variations in lighting, background, orientation, and style. Convolutional neural networks learn visual representations automatically and bridge the semantic gap between a customer image and catalog listings.</p>
-          <p><span class="tag">Unstructured images</span><span class="tag">CNNs</span><span class="tag">Feature embeddings</span><span class="tag">Billion-scale retrieval</span></p>
-          <p>The analysis shows why hand-crafted visual features cannot match the adaptability and scale of end-to-end deep representation learning.</p>
-        </section>
-      </div>
-
-      <section class="card">
-        <h2>Head-to-Head Comparison</h2>
-        <table class="comparison">
-          <thead><tr><th>Dimension</th><th>Machine Learning: Demand Forecasting</th><th>Deep Learning: Visual Search</th></tr></thead>
-          <tbody>
-            <tr><td>Data type</td><td>Structured sales, price, calendar, weather, and inventory data</td><td>Unstructured product and customer images</td></tr>
-            <tr><td>Approach</td><td>Gradient boosting, random forests, and related tree ensembles</td><td>Deep convolutional neural networks with learned embeddings</td></tr>
-            <tr><td>Interpretability</td><td>Higher; feature importance and SHAP can explain forecasts</td><td>Lower; learned representations are more difficult to interpret</td></tr>
-            <tr><td>Compute and cost</td><td>Lower; CPU-friendly and economical to retrain</td><td>Higher; requires GPUs, extensive data, and specialized expertise</td></tr>
-            <tr><td>Training data</td><td>Historical structured records may be sufficient for each product group</td><td>Large image collections and behavioral signals are required</td></tr>
-            <tr><td>Best fit</td><td>Feature-driven prediction on structured business data</td><td>Complex pattern recognition in images and other unstructured data</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="card">
-        <h2>Could the Methods Be Exchanged?</h2>
-        <p><strong>Could demand forecasting use deep learning?</strong> Yes, under certain conditions, especially with many related time series, high-frequency signals, and rich covariates. However, the reviewed evidence showed that tree ensembles can match or outperform LSTM approaches on large retail datasets while remaining easier to prepare, retrain, and explain.</p>
-        <p><strong>Could visual search use traditional machine learning?</strong> Only with substantial performance loss. Hand-crafted features such as edges, textures, and color thresholds struggle with subtle visual similarity and changing real-world conditions. The learned representation is the central advantage of deep learning for this use case.</p>
-      </section>
-
-      <section class="card">
-        <h2>Strategic Recommendation</h2>
-        <p>A retailer beginning its AI journey should start with traditional machine learning on structured data. This approach can deliver explainable quick wins, establish trust, and build the data foundation needed for more complex systems.</p>
-        <div class="roadmap">
-          <div class="phase"><b>Phase 1: ML Quick Wins</b>Demand forecasting, churn prediction, pricing, and other structured-data use cases.</div>
-          <div class="phase"><b>Phase 2: Scale and Data</b>Unify customer, inventory, and clickstream data while establishing MLOps discipline.</div>
-          <div class="phase"><b>Phase 3: Deep Learning</b>Invest in visual search, computer vision, multimodal AI, and generative AI when unstructured data provides measurable value.</div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Ethical Reflection</h2>
-        <p>Retail AI creates risks involving consumer privacy, algorithmic price discrimination, biased recommendations, behavioral manipulation, and in-store surveillance. Responsible implementation should include privacy by design, meaningful transparency, scheduled fairness audits, clear accountability, and human oversight for high-impact decisions.</p>
-        <div class="quote">Responsibility is not a barrier to innovation. It is what makes innovation worthy of customer trust.</div>
-      </section>
-
-      <section class="card">
-        <h2>Professional Skills Demonstrated</h2>
-        <p><span class="tag">Comparative technical analysis</span><span class="tag">AI strategy</span><span class="tag">Retail analytics</span><span class="tag">Responsible AI</span><span class="tag">Evidence synthesis</span><span class="tag">Team collaboration</span><span class="tag">Presentation design</span><span class="tag">Business recommendations</span></p>
-      </section>
-
-      <section class="card">
-        <h2>Selected Peer-Reviewed Sources</h2>
-        <p>Fu, H.-P., Chang, T.-H., Lin, S.-W., Teng, Y.-H., and Huang, Y.-Z. (2023). Evaluation and adoption of artificial intelligence in the retail industry. <em>International Journal of Retail &amp; Distribution Management, 51</em>(6), 773–790.</p>
-        <p>Guha, A., et al. (2021). How artificial intelligence will affect the future of retailing. <em>Journal of Retailing, 97</em>(1), 28–41.</p>
-        <p>Makridakis, S., Spiliotis, E., and Assimakopoulos, V. (2022). M5 accuracy competition: Results, findings, and conclusions. <em>International Journal of Forecasting, 38</em>(4), 1346–1364.</p>
-        <p>Nasseri, M., Falatouri, T., Brandtner, P., and Darbanian, F. (2023). Applying machine learning in retail demand prediction. <em>Applied Sciences, 13</em>(19), 11112.</p>
-        <p>Zhang, Y., et al. (2018). Visual search at Alibaba. <em>Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining</em>, 993–1001.</p>
-      </section>
+      <div id="status" class="status">Loading the original slide images…</div>
+      <div id="gallery" class="gallery" aria-live="polite"></div>
     </div>
   </main>
 
   <footer>&copy; 2026 Obiajuru Triumph Nwadiokwu. Professional AI/ML Portfolio.</footer>
+
+  <script>
+    const captions = [
+      'Retail & E-Commerce — ML vs. Deep Learning Industry Analysis',
+      'Data Landscape & Operational Challenges',
+      'How AI Is Already Transforming Retail',
+      'Traditional ML: Forecasting Demand at Walmart',
+      'Why Traditional ML Fits This Problem',
+      'Deep Learning: Visual Search at Alibaba',
+      'Why Deep Learning Is the Best Approach',
+      'Head-to-Head: Two Problems, Two Tools',
+      'Could They Swap? Crossovers & Trade-Offs',
+      'Strategy: Start with ML, Grow into DL',
+      'Ethical Reflection: Innovation with Responsibility',
+      'Tools Used & AI Disclosure',
+      'References',
+      'Closing Takeaway'
+    ];
+
+    function calculateCrops(width, height) {
+      const slideRatio = 16 / 9;
+      const crops = [];
+      if (height / width > 3) {
+        const count = Math.max(1, Math.round(height / (width / slideRatio)));
+        for (let i = 0; i < count; i++) {
+          const top = Math.round(i * height / count);
+          const bottom = Math.round((i + 1) * height / count);
+          crops.push({x:0,y:top,w:width,h:bottom-top});
+        }
+      } else if (width / height > 3) {
+        const count = Math.max(1, Math.round(width / (height * slideRatio)));
+        for (let i = 0; i < count; i++) {
+          const left = Math.round(i * width / count);
+          const right = Math.round((i + 1) * width / count);
+          crops.push({x:left,y:0,w:right-left,h:height});
+        }
+      } else {
+        const layouts = [[1,14],[2,7],[7,2],[14,1]];
+        layouts.sort((a,b) => Math.abs((width/a[0])/(height/a[1])-slideRatio) - Math.abs((width/b[0])/(height/b[1])-slideRatio));
+        const [cols, rows] = layouts[0];
+        for (let row = 0; row < rows; row++) {
+          for (let col = 0; col < cols; col++) {
+            const left = Math.round(col * width / cols);
+            const right = Math.round((col + 1) * width / cols);
+            const top = Math.round(row * height / rows);
+            const bottom = Math.round((row + 1) * height / rows);
+            crops.push({x:left,y:top,w:right-left,h:bottom-top});
+          }
+        }
+      }
+      return crops.slice(0,14);
+    }
+
+    async function loadSlides() {
+      const status = document.getElementById('status');
+      const gallery = document.getElementById('gallery');
+      try {
+        const files = ['artifact2_upload/chunk01.txt','artifact2_upload/chunk02.txt'];
+        const pieces = await Promise.all(files.map(async file => {
+          const response = await fetch(file, {cache:'no-store'});
+          if (!response.ok) throw new Error(`Unable to load ${file}`);
+          return (await response.text()).trim();
+        }));
+        const image = new Image();
+        image.onload = () => {
+          const crops = calculateCrops(image.naturalWidth, image.naturalHeight);
+          if (crops.length < 14) throw new Error('The slide image could not be divided into 14 slides.');
+          crops.forEach((crop, index) => {
+            const figure = document.createElement('figure');
+            figure.className = 'slide';
+            const canvas = document.createElement('canvas');
+            canvas.width = 1280;
+            canvas.height = 720;
+            const context = canvas.getContext('2d');
+            context.fillStyle = '#ffffff';
+            context.fillRect(0,0,canvas.width,canvas.height);
+            context.drawImage(image,crop.x,crop.y,crop.w,crop.h,0,0,canvas.width,canvas.height);
+            const caption = document.createElement('figcaption');
+            caption.textContent = `Slide ${index + 1}: ${captions[index]}`;
+            figure.append(canvas,caption);
+            gallery.appendChild(figure);
+          });
+          status.remove();
+        };
+        image.onerror = () => { throw new Error('The original slide image could not be decoded.'); };
+        image.src = 'data:image/jpeg;base64,' + pieces.join('');
+      } catch (error) {
+        status.textContent = 'The slide gallery could not load. Please refresh the page.';
+        console.error(error);
+      }
+    }
+
+    loadSlides();
+  </script>
 </body>
 </html>
