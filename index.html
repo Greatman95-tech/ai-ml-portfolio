@@ -75,6 +75,72 @@
     }
     nav a { color:var(--navy); margin-left:16px; font-weight:850; }
     nav a:hover { color:var(--blue); text-decoration:none; }
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:0;
+      flex-wrap:wrap;
+    }
+    .artifact-menu {
+      position:relative;
+      margin-left:16px;
+    }
+    .artifact-menu-toggle {
+      appearance:none;
+      border:0;
+      background:transparent;
+      color:var(--navy);
+      padding:8px 0;
+      font:inherit;
+      font-weight:850;
+      cursor:pointer;
+    }
+    .artifact-menu-toggle::after {
+      content:" ▾";
+      font-size:.78em;
+    }
+    .artifact-menu-toggle:hover,
+    .artifact-menu-toggle:focus-visible {
+      color:var(--blue);
+      outline:none;
+    }
+    .artifact-menu-list {
+      position:absolute;
+      top:calc(100% - 2px);
+      left:0;
+      min-width:170px;
+      padding:8px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:white;
+      box-shadow:0 18px 40px rgba(15,23,42,.16);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(8px);
+      pointer-events:none;
+      transition:opacity .18s ease,transform .18s ease,visibility .18s ease;
+      z-index:30;
+    }
+    .artifact-menu:hover .artifact-menu-list,
+    .artifact-menu:focus-within .artifact-menu-list {
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+    .artifact-menu-list a {
+      display:block;
+      margin:0;
+      padding:10px 12px;
+      border-radius:9px;
+      white-space:nowrap;
+    }
+    .artifact-menu-list a:hover,
+    .artifact-menu-list a:focus-visible {
+      background:#eef3ff;
+      color:var(--blue);
+      outline:none;
+    }
 
     header {
       position:relative;
@@ -280,13 +346,18 @@
   <nav>
     <div>
       <a class="brand" href="/ai-ml-portfolio/" aria-label="Go to homepage"><span class="brand-mark">AI</span>Obiajuru Nwadiokwu</a>
-      <span>
+      <div class="nav-links">
         <a href="#bio">Bio</a>
         <a href="#value">Value Proposition</a>
-        <a href="#artifact">Artifact 1</a>
-        <a href="#artifact2">Artifact 2</a>
+        <div class="artifact-menu">
+          <button class="artifact-menu-toggle" type="button" aria-haspopup="true">Artifacts</button>
+          <div class="artifact-menu-list">
+            <a href="#artifact">Artifact 1</a>
+            <a href="#artifact2">Artifact 2</a>
+          </div>
+        </div>
         <a href="#contact">Contact</a>
-      </span>
+      </div>
     </div>
   </nav>
 
