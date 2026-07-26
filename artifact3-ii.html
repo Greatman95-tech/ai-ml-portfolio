@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1537">
+  <title>Artifact 3(ii) | Communicating for Learning</title>
+  <style>
+    :root{
+      --navy:#0b1537;
+      --deep:#162d63;
+      --blue:#3d5bd1;
+      --indigo:#6c63e8;
+      --gold:#f6c85f;
+      --gold-soft:#fff1bc;
+      --coral:#ff737c;
+      --ink:#20273d;
+      --muted:#66708a;
+      --line:#dfe4f2;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.72;
+      background:
+        radial-gradient(circle at 7% 3%,rgba(108,99,232,.13),transparent 27%),
+        radial-gradient(circle at 93% 8%,rgba(246,200,95,.15),transparent 24%),
+        linear-gradient(180deg,#fbfcff,#eef2fa);
+    }
+    ::selection{background:rgba(108,99,232,.24);color:var(--navy)}
+    a{color:var(--blue);font-weight:800;text-decoration:none}
+    a:hover{text-decoration:underline}
+    nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(251,252,255,.90);
+      border-bottom:1px solid rgba(191,200,227,.62);
+      box-shadow:0 12px 34px rgba(31,42,88,.08);
+      backdrop-filter:blur(18px) saturate(150%);
+    }
+    nav::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:2px;
+      opacity:.48;
+      background:linear-gradient(90deg,transparent,var(--indigo),var(--coral),var(--gold),transparent);
+    }
+    .nav{
+      max-width:1120px;
+      margin:auto;
+      padding:15px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .brand{display:flex;align-items:center;gap:10px;color:var(--navy)}
+    .mark{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:900;
+      background:linear-gradient(135deg,#f7d267,#ff7a78 48%,#6964e8);
+      border:1px solid rgba(255,255,255,.75);
+      box-shadow:0 10px 26px rgba(72,63,150,.24);
+    }
+    header{
+      position:relative;
+      overflow:hidden;
+      color:white;
+      padding:72px 24px;
+      background:
+        radial-gradient(circle at 16% 20%,rgba(246,200,95,.29),transparent 26%),
+        radial-gradient(circle at 84% 12%,rgba(123,112,255,.35),transparent 31%),
+        linear-gradient(135deg,#08142f 0%,#15356e 48%,#493d89 100%);
+      box-shadow:inset 0 -1px rgba(255,255,255,.10);
+    }
+    header::before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      left:47%;
+      top:-155px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 0 0 48px rgba(255,255,255,.024),0 0 0 98px rgba(255,255,255,.016);
+    }
+    header::after{
+      content:"";
+      position:absolute;
+      width:480px;
+      height:480px;
+      right:-190px;
+      bottom:-250px;
+      border-radius:50%;
+      background:linear-gradient(135deg,rgba(246,200,95,.21),rgba(255,115,124,.10));
+      box-shadow:0 0 0 44px rgba(255,255,255,.025);
+    }
+    .container{position:relative;z-index:1;max-width:1120px;margin:auto}
+    .eyebrow{
+      display:inline-block;
+      color:#ffe59a;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:.82rem;
+    }
+    h1{
+      max-width:970px;
+      margin:14px 0 18px;
+      font-size:clamp(2.35rem,5.2vw,4.6rem);
+      line-height:1.05;
+      letter-spacing:-.045em;
+      text-wrap:balance;
+      text-shadow:0 14px 38px rgba(3,10,30,.24);
+    }
+    header p{max-width:890px;margin:0;color:#e8edff;font-size:1.1rem}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .meta span{
+      padding:9px 13px;
+      border:1px solid rgba(255,244,204,.30);
+      border-radius:999px;
+      background:linear-gradient(90deg,rgba(255,255,255,.15),rgba(246,200,95,.09));
+      color:#fff;
+      font-size:.88rem;
+      font-weight:800;
+      box-shadow:0 10px 26px rgba(3,10,30,.10);
+    }
+    main{padding:54px 24px 76px}
+    .overview{
+      display:grid;
+      grid-template-columns:minmax(0,1.65fr) minmax(280px,.75fr);
+      gap:22px;
+      margin-bottom:28px;
+    }
+    .panel,.article,.reflection{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(184,194,225,.54);
+      border-radius:25px;
+      background:linear-gradient(145deg,rgba(255,255,255,.99),rgba(249,249,255,.96));
+      box-shadow:0 22px 56px rgba(24,34,80,.12);
+    }
+    .panel{padding:29px}
+    .panel::before,.article::before,.reflection::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:6px;
+      background:linear-gradient(90deg,var(--blue),var(--indigo),var(--coral),var(--gold));
+    }
+    .panel h2,.article h2,.reflection h2{color:var(--navy);line-height:1.2}
+    .panel h2{margin:8px 0 10px;font-size:clamp(1.55rem,3vw,2.2rem)}
+    .panel h3{margin:22px 0 6px;color:var(--navy)}
+    .panel p{margin:0;color:#4e5872}
+    .concept-list{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+    .concept-list li{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(108,99,232,.21);
+      background:linear-gradient(135deg,rgba(108,99,232,.09),rgba(246,200,95,.13));
+      color:#35417a;
+      font-size:.82rem;
+      font-weight:800;
+    }
+    .skills-panel{
+      color:white;
+      background:linear-gradient(145deg,rgba(13,28,68,.99),rgba(63,55,133,.97));
+      border-color:rgba(255,255,255,.14);
+    }
+    .skills-panel h2,.skills-panel h3{color:white}
+    .skills-panel p{color:#e6e9ff}
+    .skills-panel ul{margin:14px 0 0;padding-left:20px;color:#eef1ff}
+    .skills-panel li{margin-bottom:8px}
+    .article{padding:clamp(27px,5vw,52px)}
+    .article-label{
+      margin:0 0 7px;
+      color:var(--indigo);
+      font-size:.76rem;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .article h2{margin:0 0 8px;font-size:clamp(1.9rem,3.5vw,2.9rem)}
+    .article-subtitle{margin:0 0 30px;color:var(--muted);font-style:italic}
+    .article-body{
+      max-width:900px;
+      margin:auto;
+      color:#273047;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(1.06rem,1.8vw,1.2rem);
+      line-height:1.86;
+    }
+    .article-body p{margin:0 0 1.28em}
+    .reflection{
+      margin-top:28px;
+      padding:31px;
+      background:linear-gradient(135deg,#fff1bc 0%,#fff8df 54%,rgba(255,115,124,.10) 100%);
+      border-color:rgba(230,188,71,.58);
+    }
+    .reflection::before{background:linear-gradient(90deg,var(--gold),var(--coral),var(--indigo))}
+    .reflection h2{margin:4px 0 10px}
+    .reflection p{margin:0;color:#4c4960}
+    footer{
+      color:#cbd5e1;
+      text-align:center;
+      padding:30px 20px;
+      background:
+        radial-gradient(circle at 15% 0%,rgba(246,200,95,.16),transparent 28%),
+        linear-gradient(135deg,#08142f,#162c61 60%,#3a3472);
+    }
+    @media(max-width:850px){
+      .overview{grid-template-columns:1fr}
+      header{padding-top:54px}
+      main{padding-left:16px;padding-right:16px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav">
+      <a class="brand" href="/ai-ml-portfolio/"><span class="mark">AI</span>Obiajuru Nwadiokwu</a>
+      <a href="/ai-ml-portfolio/#artifact3ii">Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <span class="eyebrow">Artifact 3(ii) · Communicating for Learning</span>
+      <h1>Neural Networks: A Team of Digital Investigators</h1>
+      <p>A beginner-friendly explanation of how neural networks learn, make predictions, correct errors, and support responsible decision-making.</p>
+      <div class="meta">
+        <span>Posted July 23, 2026</span>
+        <span>646 Words</span>
+        <span>Group 1</span>
+        <span>AI/ML Technical Communication</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="overview" aria-label="Artifact overview">
+        <article class="panel">
+          <h2>Portfolio Context</h2>
+          <h3>Introduction</h3>
+          <p>This class activity demonstrates my ability to explain an important machine-learning concept to a beginner audience without sacrificing technical accuracy. I used email filtering as a relatable example and described a neural network as a team of digital investigators working together in layers.</p>
+          <h3>Objective</h3>
+          <p>The objective was to make neural networks understandable by introducing one idea at a time, connecting unfamiliar terminology to practical examples, and explaining why training data and human oversight remain essential.</p>
+          <ul class="concept-list" aria-label="Key concepts">
+            <li>Input Layer</li><li>Hidden Layers</li><li>Output Layer</li><li>Weights</li><li>Training</li><li>Error Correction</li><li>Human Oversight</li>
+          </ul>
+        </article>
+        <aside class="panel skills-panel">
+          <h2>Skills Demonstrated</h2>
+          <ul>
+            <li>Audience-centered technical writing</li>
+            <li>Analogy and practical explanation</li>
+            <li>Neural-network fundamentals</li>
+            <li>Prompt refinement and evaluation</li>
+            <li>Responsible AI disclosure</li>
+            <li>Editing for clarity and accuracy</li>
+          </ul>
+        </aside>
+      </section>
+
+      <article class="article">
+        <p class="article-label">Complete Class Activity</p>
+        <h2>Neural Networks: A Team of Digital Investigators</h2>
+        <p class="article-subtitle">Communicating for Learning</p>
+        <div class="article-body">
+          <p>Imagine an organization receiving thousands of emails every day. Some messages are legitimate, while others contain spam, scams, or dangerous links. Reviewing every email manually would require considerable time, so the organization could use a neural network to assist with the process. The network studies previously classified emails and searches for recurring patterns, such as unusual sender addresses, suspicious links, urgent language, repeated phrases, and unexpected requests for personal information. Using what it learns from these examples, the network predicts whether each new email is legitimate or potentially harmful. In simple terms, a neural network is a machine-learning system that learns patterns from examples and uses those patterns to make predictions about unfamiliar information.</p>
+
+          <p>A helpful way to understand a neural network is to imagine a team of digital investigators arranged in layers. The input layer receives the original information contained in an email, including its words, sender information, links, and other characteristics. The hidden layers examine that information for meaningful clues. One hidden layer might detect suspicious words or unusual punctuation, while another might examine combinations of clues, such as an unfamiliar sender requesting an immediate financial transaction. As information moves through additional layers, the network combines simple clues into more complex patterns. The output layer then considers the collected evidence and produces a prediction, such as determining that an email has a 95% probability of being spam.</p>
+
+          <p>The connections between the layers have numerical settings called weights. These weights function like volume controls because they determine how strongly each clue influences the final prediction. For example, the phrase “urgent action required” may not be suspicious by itself, but it could become more important when combined with an unfamiliar sender, a questionable link, and a request for banking information. During training, the neural network makes a prediction and compares it with the correct answer. If it classifies a legitimate message as spam, the network measures the error and adjusts its weights. It repeats this process with many examples, gradually learning which clues and combinations of clues deserve greater attention.</p>
+
+          <p>A neural network learns through repeated practice, correction, and adjustment. However, it does not understand an email in the same way a person does. It recognizes mathematical relationships within the information it receives. Therefore, the quality and variety of its training data strongly influence its performance. If the training examples are incomplete or unrepresentative, the network may make inaccurate predictions. For instance, it might incorrectly classify an important message as spam because the message contains language resembling previously identified scams. Human oversight remains necessary to review mistakes, improve the training data, and ensure that the network’s predictions are used responsibly.</p>
+
+          <p>Neural networks support many technologies beyond email filtering. Financial institutions use them to identify unusual transactions, streaming platforms use them to recommend entertainment, smartphones use them for voice recognition, and healthcare professionals may use them to detect patterns in medical images. Although these applications appear different, the fundamental process remains similar. Information enters the network, the layers examine it for patterns, the network produces a prediction, and mistakes are used to improve future performance. Therefore, the simplest explanation is that a neural network learns by examining examples, recognizing useful patterns, making predictions, correcting errors, and repeating the process until its performance improves.</p>
+        </div>
+      </article>
+
+      <section class="reflection">
+        <h2>AI Use &amp; Communication Reflection</h2>
+        <p>I used ChatGPT by OpenAI to help brainstorm and simplify this explanation. My original prompt requested a beginner-friendly description of neural networks. I refined the prompt by asking for a professional and relatable analogy, limited technical terminology, a gradual explanation of layers and weights, and a practical example involving email filtering. I reviewed the response for accuracy and revised the wording to reflect my personal understanding and communication style. This process showed me that effective communication for learning depends on understanding the audience, presenting information gradually, using relevant examples, and explaining technical ideas without unnecessarily complicated language.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Obiajuru Triumph Nwadiokwu. Professional AI/ML Portfolio.</footer>
+</body>
+</html>
