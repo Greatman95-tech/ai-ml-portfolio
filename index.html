@@ -637,6 +637,44 @@
       .skill-card:hover,.credibility-card:hover{transform:none}
     }
   </style>
+
+  <style id="verified-testimonials">
+    #testimonials .credibility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .testimonial-card{display:flex;min-height:100%;flex-direction:column}
+    .testimonial-card::after{
+      content:"“";
+      position:absolute;
+      right:22px;
+      top:8px;
+      color:rgba(108,99,232,.10);
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:7rem;
+      font-weight:900;
+      line-height:1;
+      pointer-events:none;
+    }
+    .testimonial-quote{
+      position:relative;
+      z-index:1;
+      margin:19px 0 24px;
+      color:#35405c;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.03rem;
+      font-style:italic;
+      line-height:1.72;
+    }
+    .testimonial-source{
+      display:block;
+      margin-top:auto;
+      padding-top:17px;
+      border-top:1px solid rgba(184,194,225,.55);
+      color:var(--ink);
+      font-style:normal;
+    }
+    .testimonial-source strong{display:block;color:var(--navy);font-size:1rem}
+    .testimonial-source span{display:block;margin-top:3px;color:var(--muted);font-size:.84rem;line-height:1.45}
+    @media(max-width:900px){#testimonials .credibility-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <nav>
@@ -927,24 +965,29 @@
     <section id="testimonials">
       <div class="container">
         <div class="section-heading">
-          <div><p class="section-kicker">Credibility</p><h2>Testimonials &amp; Professional References</h2></div>
-          <p class="section-intro">Professional credibility should be accurate, verifiable, and presented with the contributor&rsquo;s permission.</p>
+          <div><p class="section-kicker">Verified Endorsements</p><h2>Professional Testimonials</h2></div>
+          <p class="section-intro">Selected excerpts from signed professional recommendation and support letters.</p>
         </div>
         <div class="credibility-grid">
-          <article class="credibility-card">
-            <span class="credibility-mark">4.0</span>
-            <h3>Academic Excellence</h3>
-            <p>Graduated as valedictorian with a perfect academic record, completed a master&rsquo;s degree in Information Systems Management at Carnegie Mellon University, and is pursuing graduate study in Artificial Intelligence.</p>
+          <article class="credibility-card testimonial-card">
+            <span class="credibility-mark">DS</span>
+            <blockquote class="testimonial-quote">From my perspective as his supervisor, what distinguished him was his ability to bridge technical system design with real-world public health application. He consistently approached challenges with a clear understanding of how environmental health data would ultimately be used by clinicians, researchers, and communities. This orientation toward practical impact significantly amplified the effectiveness of his work.</blockquote>
+            <cite class="testimonial-source"><strong>Dr. Seymour</strong><span>Supervisor · Center for the Prevention of Health Disparities</span></cite>
           </article>
-          <article class="credibility-card">
-            <span class="credibility-mark">★</span>
-            <h3>National &amp; Innovation Recognition</h3>
-            <p>Selected as a White House HBCU Scholar and Stanford University Innovation Fellow, reflecting sustained academic achievement, leadership, and innovation.</p>
+          <article class="credibility-card testimonial-card">
+            <span class="credibility-mark">NU</span>
+            <blockquote class="testimonial-quote">In assessing whether he is well-positioned to advance this endeavor, I find his work particularly compelling because it demonstrates a clear understanding of how technical systems must function within real-world clinical environments. His approach is not limited to data generation; it extends to ensuring that information is accessible, interpretable, and actionable for those making time-sensitive decisions.</blockquote>
+            <cite class="testimonial-source"><strong>Mrs. Nelly Michael Utebor</strong><span>Administrative Nursing House Supervisor &amp; Emergency Room Trauma Nurse · Loma Linda University Health</span></cite>
           </article>
-          <article class="credibility-card reference-card">
-            <span class="credibility-mark">REF</span>
-            <h3>Verified Testimonials</h3>
-            <p>Professional references and supporting documentation are available upon request. Named testimonials will be published here only after the contributor has approved the quotation and attribution.</p>
+          <article class="credibility-card testimonial-card">
+            <span class="credibility-mark">SY</span>
+            <blockquote class="testimonial-quote">This demonstrates that his endeavor is not hypothetical but actively in progress, with defined system architecture, use cases, and deployment pathways. In my experience, individuals who move from conceptualization to structured implementation at this stage exhibit a level of initiative and execution capability that strongly predicts future success.</blockquote>
+            <cite class="testimonial-source"><strong>Sakir Yucel</strong><span>Professor of Information Systems</span></cite>
+          </article>
+          <article class="credibility-card testimonial-card">
+            <span class="credibility-mark">DY</span>
+            <blockquote class="testimonial-quote">The endeavor he proposes, developing and scaling the AeroHealth Intelligence Network, a comprehensive system integrating pollen surveillance, predictive forecasting, and early-warning infrastructure, addresses a matter of clear national importance.</blockquote>
+            <cite class="testimonial-source"><strong>Dr. Yoon</strong><span>Professor of Information Systems</span></cite>
           </article>
         </div>
       </div>
