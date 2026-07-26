@@ -534,6 +534,109 @@
     }
 
   </style>
+
+  <style id="portfolio-sections">
+    #skills,#testimonials{scroll-margin-top:92px}
+    .section-intro{max-width:540px;margin:0;color:var(--muted);font-size:.98rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .skill-card{
+      display:grid;
+      grid-template-columns:58px 1fr;
+      column-gap:16px;
+      align-items:start;
+      position:relative;
+      overflow:hidden;
+      padding:25px;
+      border:1px solid rgba(184,194,225,.54);
+      border-radius:24px;
+      background:linear-gradient(145deg,rgba(255,255,255,.99),rgba(247,248,255,.96));
+      box-shadow:0 17px 42px rgba(24,34,80,.09);
+      transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+    }
+    .skill-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -50px -70px auto;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(108,99,232,.12),transparent 67%);
+      pointer-events:none;
+    }
+    .skill-card:hover{transform:translateY(-4px);border-color:rgba(108,99,232,.34);box-shadow:0 25px 56px rgba(24,34,80,.14)}
+    .skill-card>p,.skill-card>.skill-tech{grid-column:1/-1}
+    .skill-card>p{margin:15px 0 16px;color:#4e5872}
+    .skill-card h3{margin:1px 0 0;font-size:1.12rem}
+    .skill-icon{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.03em;
+      background:linear-gradient(135deg,var(--deep-blue),var(--indigo) 62%,var(--coral));
+      box-shadow:0 12px 26px rgba(61,91,209,.24);
+    }
+    .skill-level{margin:0;color:var(--indigo);font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .skill-tech{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+    .skill-tech li{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(108,99,232,.21);
+      background:linear-gradient(135deg,rgba(108,99,232,.09),rgba(246,200,95,.13));
+      color:#35417a;
+      font-size:.82rem;
+      font-weight:800;
+    }
+    .credibility-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .credibility-card{
+      position:relative;
+      overflow:hidden;
+      min-height:255px;
+      padding:28px;
+      border:1px solid rgba(184,194,225,.54);
+      border-radius:24px;
+      background:linear-gradient(145deg,rgba(255,255,255,.99),rgba(248,248,255,.95));
+      box-shadow:0 18px 45px rgba(24,34,80,.10);
+      transition:transform .22s ease,box-shadow .22s ease;
+    }
+    .credibility-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:6px;
+      background:linear-gradient(90deg,var(--indigo),var(--coral),var(--gold));
+    }
+    .credibility-card:hover{transform:translateY(-4px);box-shadow:0 26px 58px rgba(24,34,80,.14)}
+    .credibility-card h3{margin-top:20px}
+    .credibility-card p{color:#4e5872}
+    .credibility-mark{
+      width:62px;
+      height:62px;
+      display:grid;
+      place-items:center;
+      border-radius:19px;
+      background:linear-gradient(135deg,#fff0b8,#f6c85f 54%,#ff9b7f);
+      color:var(--navy);
+      font-size:1.05rem;
+      font-weight:900;
+      box-shadow:0 12px 28px rgba(246,200,95,.25);
+    }
+    .reference-card{background:linear-gradient(145deg,rgba(13,28,68,.98),rgba(63,55,133,.96));border-color:rgba(255,255,255,.15)}
+    .reference-card h3,.reference-card p{color:#fff}
+    .reference-card p{color:#e6e9ff}
+    @media(max-width:900px){
+      .skills-grid,.credibility-grid{grid-template-columns:1fr}
+      .credibility-card{min-height:0}
+      .section-intro{max-width:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .skill-card,.credibility-card{transition:none}
+      .skill-card:hover,.credibility-card:hover{transform:none}
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -541,7 +644,8 @@
       <a class="brand" href="/ai-ml-portfolio/" aria-label="Go to homepage"><span class="brand-mark">AI</span>Obiajuru Nwadiokwu</a>
       <div class="nav-links">
         <a href="#bio">Bio</a>
-        <a href="#value">Value Proposition</a>
+        <a href="#skills">Skills</a>
+        <a href="#value">Value</a>
         <div class="artifact-menu">
           <button class="artifact-menu-toggle" type="button" aria-haspopup="true">Artifacts</button>
           <div class="artifact-menu-list">
@@ -550,6 +654,7 @@
             <a href="#artifact3">Artifact 3</a>
           </div>
         </div>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -606,6 +711,53 @@
         <div class="card highlight">
           <p>I bring a unique combination of artificial intelligence knowledge, data analytics skills, information systems training, business understanding, and user-centered problem-solving. My value comes from my ability to connect technical concepts to practical solutions that help people learn, grow, and make better decisions.</p>
           <p>As an emerging AI/ML professional, I am developing the ability to design AI-assisted tools, compare machine learning approaches, analyze data, communicate complex ideas clearly, and develop responsible technology strategies for students, professionals, and organizations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="section-kicker">Capabilities</p><h2>Skills &amp; Technologies</h2></div>
+          <p class="section-intro">A multidisciplinary toolkit connecting AI, analytics, product thinking, software development, and professional communication.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-icon">AI</span>
+            <div><p class="skill-level">Applied AI</p><h3>Artificial Intelligence &amp; Machine Learning</h3></div>
+            <p>Designing practical AI-assisted solutions and evaluating when traditional machine learning or deep learning best fits the data and business problem.</p>
+            <ul class="skill-tech"><li>Machine Learning</li><li>Deep Learning</li><li>Generative AI</li><li>Responsible AI</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon">DA</span>
+            <div><p class="skill-level">Data Practice</p><h3>Data Analytics &amp; Visualization</h3></div>
+            <p>Transforming structured data into clear insights through querying, analysis, visualization, and business-focused interpretation.</p>
+            <ul class="skill-tech"><li>SQL &amp; MySQL</li><li>Python</li><li>pandas</li><li>Power BI</li><li>Excel</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon">PX</span>
+            <div><p class="skill-level">AI Product Design</p><h3>Prompt Engineering &amp; AI Assistants</h3></div>
+            <p>Developing structured prompts, testing AI responses, and creating user-centered assistants that provide useful and ethical guidance.</p>
+            <ul class="skill-tech"><li>Custom GPTs</li><li>Prompt Testing</li><li>Design Thinking</li><li>User-Centered Design</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon">PS</span>
+            <div><p class="skill-level">Strategic Thinking</p><h3>Product &amp; Business Strategy</h3></div>
+            <p>Connecting technical capabilities to customer needs, business value, implementation roadmaps, and responsible adoption decisions.</p>
+            <ul class="skill-tech"><li>Business Analysis</li><li>Product Strategy</li><li>Research Synthesis</li><li>Roadmapping</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon">SE</span>
+            <div><p class="skill-level">Technical Foundation</p><h3>Software &amp; Development Tools</h3></div>
+            <p>Using development environments, programming languages, APIs, and version control to build, test, document, and publish technical work.</p>
+            <ul class="skill-tech"><li>JavaScript</li><li>Java</li><li>GitHub</li><li>VS Code</li><li>Postman</li><li>Jupyter</li></ul>
+          </article>
+          <article class="skill-card">
+            <span class="skill-icon">CL</span>
+            <div><p class="skill-level">Human-Centered Leadership</p><h3>Communication &amp; Collaboration</h3></div>
+            <p>Translating complex ideas for technical and nontechnical audiences through writing, presentations, teamwork, and professional storytelling.</p>
+            <ul class="skill-tech"><li>Technical Writing</li><li>Professional Speaking</li><li>Team Presentations</li><li>Leadership Messaging</li></ul>
+          </article>
         </div>
       </div>
     </section>
@@ -727,6 +879,32 @@
               <li>Public Speaking</li><li>Professional Storytelling</li><li>Audience Engagement</li><li>Personal Branding</li><li>Nontechnical Communication</li><li>Leadership Messaging</li>
             </ul>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="alt">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="section-kicker">Credibility</p><h2>Testimonials &amp; Professional References</h2></div>
+          <p class="section-intro">Professional credibility should be accurate, verifiable, and presented with the contributor&rsquo;s permission.</p>
+        </div>
+        <div class="credibility-grid">
+          <article class="credibility-card">
+            <span class="credibility-mark">4.0</span>
+            <h3>Academic Excellence</h3>
+            <p>Graduated as valedictorian with a perfect academic record, completed a master&rsquo;s degree in Information Systems Management at Carnegie Mellon University, and is pursuing graduate study in Artificial Intelligence.</p>
+          </article>
+          <article class="credibility-card">
+            <span class="credibility-mark">★</span>
+            <h3>National &amp; Innovation Recognition</h3>
+            <p>Selected as a White House HBCU Scholar and Stanford University Innovation Fellow, reflecting sustained academic achievement, leadership, and innovation.</p>
+          </article>
+          <article class="credibility-card reference-card">
+            <span class="credibility-mark">REF</span>
+            <h3>Verified Testimonials</h3>
+            <p>Professional references and supporting documentation are available upon request. Named testimonials will be published here only after the contributor has approved the quotation and attribution.</p>
+          </article>
         </div>
       </div>
     </section>
