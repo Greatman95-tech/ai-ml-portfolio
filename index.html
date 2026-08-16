@@ -675,6 +675,110 @@
     .testimonial-source span{display:block;margin-top:3px;color:var(--muted);font-size:.84rem;line-height:1.45}
     @media(max-width:900px){#testimonials .credibility-grid{grid-template-columns:1fr}}
   </style>
+
+  <style id="peer-review-enhancements">
+    .review-takeaways{
+      position:relative;
+      overflow:hidden;
+      margin:0 0 30px;
+      padding:clamp(22px,4vw,32px);
+      border:1px solid rgba(108,99,232,.24);
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 100% 0%,rgba(246,200,95,.20),transparent 34%),
+        linear-gradient(145deg,rgba(255,255,255,.99),rgba(244,246,255,.98));
+      box-shadow:0 20px 52px rgba(24,34,80,.11);
+    }
+    .review-takeaways::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:6px;
+      background:linear-gradient(90deg,var(--blue),var(--indigo,#6c63e8),var(--coral,#ff737c),var(--gold));
+    }
+    .review-label{
+      margin:0 0 5px;
+      color:var(--blue);
+      font-size:.78rem;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .review-takeaways h2{
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:clamp(1.45rem,3vw,2.15rem);
+      line-height:1.15;
+    }
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+    }
+    .review-item{
+      min-height:124px;
+      padding:18px;
+      border:1px solid rgba(184,194,225,.56);
+      border-radius:17px;
+      background:rgba(255,255,255,.84);
+      box-shadow:0 10px 26px rgba(24,34,80,.07);
+    }
+    .review-item strong{
+      display:block;
+      margin-bottom:6px;
+      color:var(--navy);
+      font-size:1rem;
+      line-height:1.25;
+    }
+    .review-item span{
+      display:block;
+      color:var(--muted,#64748b);
+      font-size:.94rem;
+      line-height:1.55;
+    }
+    .review-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .review-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 15px;
+      border:1px solid rgba(61,91,209,.25);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      font-weight:900;
+      text-decoration:none;
+    }
+    .review-link.primary{
+      border-color:transparent;
+      background:linear-gradient(135deg,var(--navy),var(--blue) 60%,var(--indigo,#6c63e8));
+      color:#fff;
+    }
+    .review-link:hover{text-decoration:none;transform:translateY(-1px)}
+    .review-compact{margin:0 0 24px;padding:20px;border-radius:19px}
+    .review-compact .review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .review-compact .review-item{min-height:0;padding:15px}
+    .program-alignment{
+      margin:24px 0 0;
+      padding:20px 22px;
+      border:1px solid rgba(61,91,209,.24);
+      border-left:6px solid var(--coral,#ff737c);
+      border-radius:17px;
+      background:linear-gradient(135deg,rgba(108,99,232,.08),rgba(246,200,95,.14));
+    }
+    .program-alignment h3{margin:0 0 7px;color:var(--navy)}
+    .program-alignment p{margin:0}
+    @media(max-width:720px){
+      .review-compact .review-grid{grid-template-columns:1fr}
+      .review-item{min-height:0}
+    }
+    @media(prefers-reduced-motion:reduce){.review-link:hover{transform:none}}
+  </style>
 </head>
 <body>
   <nav>
@@ -836,6 +940,15 @@
         </div>
         <div class="grid">
           <article class="card">
+            <div class="review-takeaways review-compact" aria-label="Artifact 1 key takeaways">
+              <p class="review-label">Key Takeaways</p>
+              <div class="review-grid">
+                <div class="review-item"><strong>Working AI Artifact</strong><span>A launchable Custom GPT provides direct evidence of the project.</span></div>
+                <div class="review-item"><strong>Six Integrated Supports</strong><span>Skill gaps, concepts, projects, portfolios, interviews, and action planning.</span></div>
+                <div class="review-item"><strong>Context Before Advice</strong><span>The assistant asks about goals, evidence, timing, and constraints first.</span></div>
+                <div class="review-item"><strong>Responsible by Design</strong><span>No invented credentials; privacy awareness, verification, and human control remain essential.</span></div>
+              </div>
+            </div>
             <h3>Introduction</h3>
             <p>PathWise AI Assistant is a custom AI chatbot created as part of my AIML-500 AI Lab. It helps graduate students and early-career professionals connect learning in artificial intelligence, machine learning, data analytics, information systems, product management, and software development to credible evidence of career readiness.</p>
             <h3>Explore the Artifact</h3>
@@ -916,6 +1029,15 @@
         </div>
         <div class="grid">
           <article class="card">
+            <div class="review-takeaways review-compact" aria-label="Artifact 2 key takeaways">
+              <p class="review-label">Evidence at a Glance</p>
+              <div class="review-grid">
+                <div class="review-item"><strong>14-Slide Case Study</strong><span>A complete visual presentation with a direct gallery link.</span></div>
+                <div class="review-item"><strong>Two Industry Cases</strong><span>Walmart demand forecasting and Alibaba visual search.</span></div>
+                <div class="review-item"><strong>Six Documented Sources</strong><span>Five scholarly references plus one clearly identified industry source.</span></div>
+                <div class="review-item"><strong>Decision Outcome</strong><span>Start with ML for structured data; use DL when unstructured complexity earns the cost.</span></div>
+              </div>
+            </div>
             <h3>Introduction</h3>
             <p>This collaborative presentation analyzes how machine learning and deep learning are transforming retail and e-commerce. It compares traditional machine learning for structured demand forecasting with deep learning for unstructured visual search.</p>
             <h3>Objective</h3>
@@ -964,6 +1086,15 @@
         </div>
         <div class="grid">
           <article class="card">
+            <div class="review-takeaways review-compact" aria-label="Artifact 3 part one key takeaways">
+              <p class="review-label">Key Takeaways</p>
+              <div class="review-grid">
+                <div class="review-item"><strong>Audience-Ready Evidence</strong><span>A polished script and downloadable Word artifact for live use.</span></div>
+                <div class="review-item"><strong>Verified Foundation</strong><span>Biographical claims are drawn from documented academic and professional records.</span></div>
+                <div class="review-item"><strong>Program Connection</strong><span>Demonstrates the stakeholder communication required for responsible AI/ML leadership.</span></div>
+                <div class="review-item"><strong>Transferable Skill</strong><span>Adapts complex professional experience for technical and nontechnical audiences.</span></div>
+              </div>
+            </div>
             <h3>Introduction</h3>
             <p>Although this portfolio primarily highlights artificial intelligence and technology, professional impact also depends on the ability to communicate a compelling human story. If an event organizer, announcer, moderator, or master of ceremonies wants to introduce me for a talk on a topic beyond technology, this artifact provides a polished, ready-to-use introduction centered on purpose, perseverance, service, and community impact.</p>
             <h3>Speaking Topic</h3>
@@ -972,12 +1103,28 @@
             <p>This professional speaker introduction presents my academic journey, scholarship achievements, interdisciplinary research, innovation leadership, and commitment to using opportunity in service of others. It is written for live delivery and balances credibility, warmth, personality, and audience engagement.</p>
             <h3>Objective</h3>
             <p>The objective is to help an event host introduce me with confidence while framing my achievements around a larger message: success becomes most meaningful when it opens doors, improves lives, and strengthens communities.</p>
+            <h3>Process</h3>
+            <p>I reviewed verified biographical information, selected a central theme, organized the script for spoken delivery, balanced credibility with warmth, edited pacing and transitions, and prepared a downloadable Word version.</p>
+            <h3>Tools and Technologies Used</h3>
+            <p>Microsoft Word, professional biography review, audience analysis, narrative development, speechwriting, editing for live delivery, and web portfolio publishing.</p>
+            <h3>Target Audience</h3>
+            <p>Event organizers, moderators, academic leaders, professional associations, and community audiences who need a polished introduction for a technical or nontechnical talk.</p>
             <h3>Challenge</h3>
             <p>A technology-centered biography alone does not give event hosts a concise and engaging way to introduce me for talks about purpose, leadership, resilience, service, and community impact.</p>
             <h3>Solution</h3>
             <p>I created an announcer-ready introduction that combines professional credibility with a warm human story and a clear speaking theme, allowing hosts to present me confidently to technical or nontechnical audiences.</p>
+            <h3>Value Proposition</h3>
+            <p>The artifact gives a host an immediately usable introduction that establishes credibility, humanizes the speaker, and frames the talk around a memorable message.</p>
+            <h3>Unique Value</h3>
+            <p>It combines verified academic and professional credibility with a personal story of purpose, perseverance, service, and community impact.</p>
+            <h3>Relevance</h3>
+            <p>It demonstrates audience-centered writing, public-speaking readiness, personal branding, and the ability to translate professional experience for varied stakeholders.</p>
+            <h3>AI/ML Program Outcome Alignment</h3>
+            <p>AI/ML professionals must explain technical possibilities, limitations, risks, and business value to nontechnical decision-makers. This artifact demonstrates the audience adaptation and leadership communication needed to support responsible technology adoption.</p>
             <h3>Professional Value</h3>
             <p>This artifact demonstrates public-speaking readiness, audience awareness, personal branding, narrative development, and the ability to communicate effectively in both technical and nontechnical settings.</p>
+            <h3>References</h3>
+            <p>The original script and factual foundation are documented on the <a href="artifact3.html#artifact3-references">full artifact page</a>, with the <a href="assets/artifact3/TED_Talk_Speaker_Introduction_Obi.docx" download>Word document</a> serving as primary evidence.</p>
             <p><a class="button blue" href="artifact3.html">Read the Complete Speaker Introduction</a></p>
             <p><a href="assets/artifact3/TED_Talk_Speaker_Introduction_Obi.docx" download>Download the original Word document</a></p>
           </article>
@@ -1006,20 +1153,45 @@
         </div>
         <div class="grid">
           <article class="card">
+            <div class="review-takeaways review-compact" aria-label="Artifact 3 part two key takeaways">
+              <p class="review-label">Evidence at a Glance</p>
+              <div class="review-grid">
+                <div class="review-item"><strong>646-Word Class Artifact</strong><span>Complete original communication activity presented in the full artifact.</span></div>
+                <div class="review-item"><strong>One Consistent Analogy</strong><span>Email filtering connects layers, weights, training, and prediction.</span></div>
+                <div class="review-item"><strong>Seven Core Concepts</strong><span>From input layers through error correction and human oversight.</span></div>
+                <div class="review-item"><strong>Transparent AI Use</strong><span>Prompt refinement, fact-checking, editing, and disclosure are documented.</span></div>
+              </div>
+            </div>
             <h3>Introduction</h3>
             <p><strong>“Neural Networks: A Team of Digital Investigators”</strong> is a beginner-friendly explanation of how neural networks learn from examples, examine information through layers, adjust weights, correct errors, and make predictions. The activity uses email filtering as a relatable real-world example.</p>
+            <h3>Description</h3>
+            <p>This 646-word course activity explains inputs, hidden layers, outputs, weights, training, error correction, data quality, prediction mistakes, and human oversight through a single practical analogy.</p>
             <h3>Objective</h3>
             <p>The objective was to communicate an important AI/ML concept accurately to a nontechnical audience by limiting unnecessary terminology, introducing ideas gradually, and using a professional analogy that makes layers, weights, training, and prediction easier to understand.</p>
+            <h3>Process</h3>
+            <p>I defined the beginner audience, used ChatGPT to brainstorm approaches, refined the prompt, selected email filtering, checked the technical meaning, and revised the language to reflect my own understanding.</p>
+            <h3>Tools and Technologies Used</h3>
+            <p>ChatGPT, prompt refinement, neural-network concepts, analogy development, technical writing, audience analysis, fact-checking, manual editing, and responsible AI disclosure.</p>
+            <h3>Target Audience</h3>
+            <p>Beginning AI/ML students and nontechnical professionals who need an accurate, approachable introduction to neural networks.</p>
             <h3>Challenge</h3>
             <p>Neural-network concepts such as layers, weights, training, and error correction can feel abstract and inaccessible to beginners when they are introduced through technical terminology alone.</p>
             <h3>Solution</h3>
             <p>I used email filtering and a team of digital investigators as relatable analogies, explaining each concept gradually while preserving technical accuracy and emphasizing training-data quality and human oversight.</p>
+            <h3>Value Proposition</h3>
+            <p>The artifact makes a foundational AI/ML concept understandable without removing its essential mechanics or responsible-use considerations.</p>
+            <h3>Unique Value</h3>
+            <p>One cohesive analogy connects the complete learning process instead of presenting disconnected definitions.</p>
+            <h3>Relevance</h3>
+            <p>It demonstrates neural-network knowledge, audience-centered technical communication, prompt refinement, critical review, and transparent AI use.</p>
             <h3>Communication Approach</h3>
             <p>I compared a neural network to a team of digital investigators. The input layer receives evidence, hidden layers examine clues and combine patterns, and the output layer produces a prediction. The explanation also addresses training-data quality, possible classification errors, and the continuing need for human oversight.</p>
             <h3>AI Use &amp; Revision</h3>
             <p>I used ChatGPT to brainstorm and simplify the initial explanation, then refined the prompt for a beginner audience, a relatable analogy, limited technical terminology, and a practical email-filtering example. I reviewed the result for accuracy and revised it to reflect my own understanding and communication style.</p>
             <h3>Professional Value</h3>
             <p>This artifact demonstrates audience-centered technical writing, neural-network knowledge, prompt refinement, critical review, responsible AI disclosure, and the ability to translate complex concepts into clear professional communication.</p>
+            <h3>References</h3>
+            <p>The <a href="artifact3-ii.html#artifact3ii-references">full artifact page</a> clearly lists the original course artifact, a neural-network reference, and the disclosed AI tool.</p>
             <p><a class="button blue" href="artifact3-ii.html">Read the Complete Activity</a></p>
           </article>
           <aside class="card">
@@ -1048,6 +1220,15 @@
         </div>
         <div class="grid">
           <article class="card">
+            <div class="review-takeaways review-compact" aria-label="Artifact 4 key takeaways">
+              <p class="review-label">Evidence at a Glance</p>
+              <div class="review-grid">
+                <div class="review-item"><strong>1,462-Word Reflection</strong><span>A complete leadership analysis with downloadable original submission.</span></div>
+                <div class="review-item"><strong>Five-Stage Framework</strong><span>Examine, Represent, Measure, Engage, and Govern.</span></div>
+                <div class="review-item"><strong>Lifecycle Coverage</strong><span>Problem framing, data, modeling, adoption, monitoring, and incident response.</span></div>
+                <div class="review-item"><strong>Responsible Outcome</strong><span>Fairness, participation, human review, appeals, audits, and corrective action.</span></div>
+              </div>
+            </div>
             <h3>Introduction</h3>
             <p>This reflective leadership analysis examines how human assumptions, cognitive biases, organizational practices, and historical data can shape AI-assisted decisions. It establishes <strong>responsible inclusion</strong> as my central leadership value: technology should expand human opportunity rather than automate existing inequalities.</p>
             <h3>Objective</h3>
