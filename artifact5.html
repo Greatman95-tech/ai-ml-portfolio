@@ -92,7 +92,7 @@
     .panel h2{margin:0 0 18px;color:var(--navy)}
     .panel h3{margin:22px 0 5px;color:var(--deep);font-size:1.02rem}
     .panel p{margin:0;color:#3b455e}
-    .skills-panel{background:linear-gradient(145deg,#101f49,#263c80 66%,#55458d);color:white;border:0}
+    .skills-panel{align-self:start;position:sticky;top:92px;background:linear-gradient(145deg,#101f49,#263c80 66%,#55458d);color:white;border:0}
     .skills-panel::before{display:none}
     .skills-panel h2{color:#fff}
     .skills-panel ul{margin:0;padding-left:20px}
@@ -124,7 +124,7 @@
     .reference-list{padding-left:24px}
     .reference-list li{margin-bottom:16px;overflow-wrap:anywhere}
     footer{background:radial-gradient(circle at 15% 0%,rgba(246,200,95,.16),transparent 28%),linear-gradient(135deg,#08142f,#162c61 60%,#3a3472);color:#cbd5e1;text-align:center;padding:30px 20px}
-    @media(max-width:940px){.overview{grid-template-columns:1fr}.review-grid{grid-template-columns:repeat(2,1fr)}.signal-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:940px){.overview{grid-template-columns:1fr}.skills-panel{position:static}.review-grid{grid-template-columns:repeat(2,1fr)}.signal-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:720px){
       header{padding-top:52px}.review-grid,.signal-grid{grid-template-columns:1fr}.timeline-track{grid-template-columns:1fr}
       .timeline-item{padding:10px 0 22px 30px;border-top:0;border-left:3px solid rgba(61,91,209,.24)}
