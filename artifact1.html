@@ -393,6 +393,110 @@
       .button:hover,.card:hover { transform:none; }
     }
   </style>
+
+  <style id="peer-review-enhancements">
+    .review-takeaways{
+      position:relative;
+      overflow:hidden;
+      margin:0 0 30px;
+      padding:clamp(22px,4vw,32px);
+      border:1px solid rgba(108,99,232,.24);
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 100% 0%,rgba(246,200,95,.20),transparent 34%),
+        linear-gradient(145deg,rgba(255,255,255,.99),rgba(244,246,255,.98));
+      box-shadow:0 20px 52px rgba(24,34,80,.11);
+    }
+    .review-takeaways::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto 0;
+      height:6px;
+      background:linear-gradient(90deg,var(--blue),var(--indigo,#6c63e8),var(--coral,#ff737c),var(--gold));
+    }
+    .review-label{
+      margin:0 0 5px;
+      color:var(--blue);
+      font-size:.78rem;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .review-takeaways h2{
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:clamp(1.45rem,3vw,2.15rem);
+      line-height:1.15;
+    }
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+    }
+    .review-item{
+      min-height:124px;
+      padding:18px;
+      border:1px solid rgba(184,194,225,.56);
+      border-radius:17px;
+      background:rgba(255,255,255,.84);
+      box-shadow:0 10px 26px rgba(24,34,80,.07);
+    }
+    .review-item strong{
+      display:block;
+      margin-bottom:6px;
+      color:var(--navy);
+      font-size:1rem;
+      line-height:1.25;
+    }
+    .review-item span{
+      display:block;
+      color:var(--muted,#64748b);
+      font-size:.94rem;
+      line-height:1.55;
+    }
+    .review-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .review-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 15px;
+      border:1px solid rgba(61,91,209,.25);
+      border-radius:999px;
+      background:#fff;
+      color:var(--blue);
+      font-weight:900;
+      text-decoration:none;
+    }
+    .review-link.primary{
+      border-color:transparent;
+      background:linear-gradient(135deg,var(--navy),var(--blue) 60%,var(--indigo,#6c63e8));
+      color:#fff;
+    }
+    .review-link:hover{text-decoration:none;transform:translateY(-1px)}
+    .review-compact{margin:0 0 24px;padding:20px;border-radius:19px}
+    .review-compact .review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .review-compact .review-item{min-height:0;padding:15px}
+    .program-alignment{
+      margin:24px 0 0;
+      padding:20px 22px;
+      border:1px solid rgba(61,91,209,.24);
+      border-left:6px solid var(--coral,#ff737c);
+      border-radius:17px;
+      background:linear-gradient(135deg,rgba(108,99,232,.08),rgba(246,200,95,.14));
+    }
+    .program-alignment h3{margin:0 0 7px;color:var(--navy)}
+    .program-alignment p{margin:0}
+    @media(max-width:720px){
+      .review-compact .review-grid{grid-template-columns:1fr}
+      .review-item{min-height:0}
+    }
+    @media(prefers-reduced-motion:reduce){.review-link:hover{transform:none}}
+  </style>
 </head>
 <body>
   <nav>
@@ -423,6 +527,20 @@
 
   <main id="case-study">
     <div class="container">
+      <section class="review-takeaways" aria-labelledby="artifact1-takeaways">
+        <p class="review-label">Evidence at a Glance</p>
+        <h2 id="artifact1-takeaways">Key Takeaways</h2>
+        <div class="review-grid">
+          <div class="review-item"><strong>Working Prototype</strong><span>A direct launch link lets reviewers test the Custom GPT.</span></div>
+          <div class="review-item"><strong>Six Support Areas</strong><span>Skill gaps, concepts, project planning, portfolios, interviews, and action plans.</span></div>
+          <div class="review-item"><strong>Context-First Workflow</strong><span>Recommendations follow clarification of goals, evidence, timing, and constraints.</span></div>
+          <div class="review-item"><strong>Responsible-AI Guardrails</strong><span>No fabricated claims; privacy, verification, limitations, and human oversight are explicit.</span></div>
+        </div>
+        <div class="review-actions">
+          <a class="review-link primary" href="https://chatgpt.com/g/g-6a4fff72b9dc81919a778f15e5975f65-pathwise-ai-assistant" target="_blank" rel="noopener noreferrer">Launch Working Artifact</a>
+          <a class="review-link" href="#references-title">View References</a>
+        </div>
+      </section>
       <section aria-labelledby="overview-title">
         <div class="overview-grid">
           <article class="panel">
